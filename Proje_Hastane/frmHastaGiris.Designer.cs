@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHastaGiris));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             this.txtHastaSifre.Name = "txtHastaSifre";
             this.txtHastaSifre.Size = new System.Drawing.Size(117, 31);
             this.txtHastaSifre.TabIndex = 4;
+            this.txtHastaSifre.UseSystemPasswordChar = true;
             // 
             // btnGiris
             // 
@@ -90,6 +92,7 @@
             this.btnGiris.TabIndex = 5;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
             // lnlblUyeOl
             // 
@@ -100,11 +103,14 @@
             this.lnlblUyeOl.TabIndex = 6;
             this.lnlblUyeOl.TabStop = true;
             this.lnlblUyeOl.Text = "Üye Ol!";
+            this.lnlblUyeOl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnlblUyeOl_LinkClicked);
             // 
             // frmHastaGiris
             // 
+            this.AcceptButton = this.btnGiris;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(441, 254);
             this.Controls.Add(this.lnlblUyeOl);
@@ -115,7 +121,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
+            this.MinimizeBox = false;
             this.Name = "frmHastaGiris";
             this.Text = "Hasta Giriş";
             this.ResumeLayout(false);

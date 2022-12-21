@@ -17,9 +17,30 @@ namespace Proje_Hastane
             InitializeComponent();
         }
 
-        private void btnHastaGiris_Click(object sender, EventArgs e)
+        public void btnHastaGiris_Click(object sender, EventArgs e)
+        {
+            frmHastaGiris hastaGiris = new frmHastaGiris();
+            hastaGiris.Show();
+            this.Hide();
+        }
+
+        public void frmGirisler_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void btnDoktorGiris_Click(object sender, EventArgs e)
+        {
+            frmDoktorGiris doktorGiris = new frmDoktorGiris();
+            doktorGiris.Show();
+            this.Hide();
+        }
+
+        public void btnSekreterGiris_Click(object sender, EventArgs e)
+        {
+            frmSekreterGiris sekreterGiris = new frmSekreterGiris();
+            sekreterGiris.Show();
+            this.Hide();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBilgiDuzenle));
             this.btnKayitDuzenle = new System.Windows.Forms.Button();
             this.cmbCinsiyet = new System.Windows.Forms.ComboBox();
             this.mtxTelefon = new System.Windows.Forms.MaskedTextBox();
@@ -49,9 +50,10 @@
             this.btnKayitDuzenle.Location = new System.Drawing.Point(167, 254);
             this.btnKayitDuzenle.Name = "btnKayitDuzenle";
             this.btnKayitDuzenle.Size = new System.Drawing.Size(145, 39);
-            this.btnKayitDuzenle.TabIndex = 21;
+            this.btnKayitDuzenle.TabIndex = 7;
             this.btnKayitDuzenle.Text = "Güncelle";
             this.btnKayitDuzenle.UseVisualStyleBackColor = false;
+            this.btnKayitDuzenle.Click += new System.EventHandler(this.btnKayitDuzenle_Click);
             // 
             // cmbCinsiyet
             // 
@@ -62,7 +64,7 @@
             this.cmbCinsiyet.Location = new System.Drawing.Point(167, 180);
             this.cmbCinsiyet.Name = "cmbCinsiyet";
             this.cmbCinsiyet.Size = new System.Drawing.Size(145, 31);
-            this.cmbCinsiyet.TabIndex = 17;
+            this.cmbCinsiyet.TabIndex = 5;
             // 
             // mtxTelefon
             // 
@@ -70,7 +72,7 @@
             this.mtxTelefon.Mask = "(999) 000 00 00";
             this.mtxTelefon.Name = "mtxTelefon";
             this.mtxTelefon.Size = new System.Drawing.Size(145, 31);
-            this.mtxTelefon.TabIndex = 16;
+            this.mtxTelefon.TabIndex = 4;
             this.mtxTelefon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSoyad
@@ -78,14 +80,14 @@
             this.txtSoyad.Location = new System.Drawing.Point(167, 69);
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(145, 31);
-            this.txtSoyad.TabIndex = 14;
+            this.txtSoyad.TabIndex = 2;
             // 
             // txtAd
             // 
             this.txtAd.Location = new System.Drawing.Point(167, 32);
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(145, 31);
-            this.txtAd.TabIndex = 13;
+            this.txtAd.TabIndex = 1;
             // 
             // label6
             // 
@@ -128,8 +130,7 @@
             this.txtSifre.Location = new System.Drawing.Point(167, 217);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(145, 31);
-            this.txtSifre.TabIndex = 19;
-            this.txtSifre.UseSystemPasswordChar = true;
+            this.txtSifre.TabIndex = 6;
             // 
             // mtxTCKimlik
             // 
@@ -137,7 +138,7 @@
             this.mtxTCKimlik.Mask = "00000000000";
             this.mtxTCKimlik.Name = "mtxTCKimlik";
             this.mtxTCKimlik.Size = new System.Drawing.Size(145, 31);
-            this.mtxTCKimlik.TabIndex = 15;
+            this.mtxTCKimlik.TabIndex = 3;
             this.mtxTCKimlik.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtxTCKimlik.ValidatingType = typeof(int);
             // 
@@ -161,8 +162,10 @@
             // 
             // frmBilgiDuzenle
             // 
+            this.AcceptButton = this.btnKayitDuzenle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(382, 335);
             this.Controls.Add(this.btnKayitDuzenle);
@@ -179,9 +182,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
             this.Name = "frmBilgiDuzenle";
             this.Text = "Bilgi Düzenleme";
+            this.Load += new System.EventHandler(this.frmBilgiDuzenle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
