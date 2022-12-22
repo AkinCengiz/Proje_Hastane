@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoktorBilgiDuzenle));
             this.cmbBrans = new System.Windows.Forms.ComboBox();
             this.txtSoyad = new System.Windows.Forms.TextBox();
             this.txtAd = new System.Windows.Forms.TextBox();
@@ -44,11 +45,8 @@
             // cmbBrans
             // 
             this.cmbBrans.FormattingEnabled = true;
-            this.cmbBrans.Items.AddRange(new object[] {
-            "Erkek",
-            "Kadın"});
             this.cmbBrans.Location = new System.Drawing.Point(160, 155);
-            this.cmbBrans.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbBrans.Margin = new System.Windows.Forms.Padding(5);
             this.cmbBrans.Name = "cmbBrans";
             this.cmbBrans.Size = new System.Drawing.Size(153, 31);
             this.cmbBrans.TabIndex = 30;
@@ -56,7 +54,7 @@
             // txtSoyad
             // 
             this.txtSoyad.Location = new System.Drawing.Point(160, 63);
-            this.txtSoyad.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtSoyad.Margin = new System.Windows.Forms.Padding(5);
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(153, 31);
             this.txtSoyad.TabIndex = 27;
@@ -64,7 +62,7 @@
             // txtAd
             // 
             this.txtAd.Location = new System.Drawing.Point(160, 17);
-            this.txtAd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtAd.Margin = new System.Windows.Forms.Padding(5);
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(153, 31);
             this.txtAd.TabIndex = 26;
@@ -102,16 +100,15 @@
             // txtSifre
             // 
             this.txtSifre.Location = new System.Drawing.Point(160, 203);
-            this.txtSifre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtSifre.Margin = new System.Windows.Forms.Padding(5);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(153, 31);
             this.txtSifre.TabIndex = 32;
-            this.txtSifre.UseSystemPasswordChar = true;
             // 
             // mtxTCKimlik
             // 
             this.mtxTCKimlik.Location = new System.Drawing.Point(160, 109);
-            this.mtxTCKimlik.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mtxTCKimlik.Margin = new System.Windows.Forms.Padding(5);
             this.mtxTCKimlik.Mask = "00000000000";
             this.mtxTCKimlik.Name = "mtxTCKimlik";
             this.mtxTCKimlik.Size = new System.Drawing.Size(153, 31);
@@ -149,6 +146,7 @@
             this.btnGuncelle.TabIndex = 39;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = false;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // frmDoktorBilgiDuzenle
             // 
@@ -168,9 +166,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmDoktorBilgiDuzenle";
-            this.Text = "frmDoktorBilgiDuzenle";
+            this.Text = "Doktor Bilgi Güncelle";
+            this.Load += new System.EventHandler(this.frmDoktorBilgiDuzenle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

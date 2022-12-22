@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoktorPaneli));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
@@ -47,11 +48,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(317, 14);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(549, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(750, 393);
             this.dataGridView1.TabIndex = 55;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // btnSil
             // 
@@ -63,6 +67,7 @@
             this.btnSil.TabIndex = 54;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = false;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnGuncelle
             // 
@@ -74,6 +79,7 @@
             this.btnGuncelle.TabIndex = 53;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = false;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnEkle
             // 
@@ -85,18 +91,16 @@
             this.btnEkle.TabIndex = 49;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = false;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // cmbBrans
             // 
             this.cmbBrans.FormattingEnabled = true;
-            this.cmbBrans.Items.AddRange(new object[] {
-            "Erkek",
-            "Kadın"});
             this.cmbBrans.Location = new System.Drawing.Point(156, 152);
             this.cmbBrans.Margin = new System.Windows.Forms.Padding(5);
             this.cmbBrans.Name = "cmbBrans";
             this.cmbBrans.Size = new System.Drawing.Size(153, 31);
-            this.cmbBrans.TabIndex = 45;
+            this.cmbBrans.TabIndex = 4;
             // 
             // txtSoyad
             // 
@@ -104,7 +108,7 @@
             this.txtSoyad.Margin = new System.Windows.Forms.Padding(5);
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(153, 31);
-            this.txtSoyad.TabIndex = 43;
+            this.txtSoyad.TabIndex = 2;
             // 
             // txtAd
             // 
@@ -112,7 +116,7 @@
             this.txtAd.Margin = new System.Windows.Forms.Padding(5);
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(153, 31);
-            this.txtAd.TabIndex = 42;
+            this.txtAd.TabIndex = 1;
             // 
             // label6
             // 
@@ -150,8 +154,7 @@
             this.txtSifre.Margin = new System.Windows.Forms.Padding(5);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(153, 31);
-            this.txtSifre.TabIndex = 47;
-            this.txtSifre.UseSystemPasswordChar = true;
+            this.txtSifre.TabIndex = 5;
             // 
             // mtxTCKimlik
             // 
@@ -160,7 +163,7 @@
             this.mtxTCKimlik.Mask = "00000000000";
             this.mtxTCKimlik.Name = "mtxTCKimlik";
             this.mtxTCKimlik.Size = new System.Drawing.Size(153, 31);
-            this.mtxTCKimlik.TabIndex = 44;
+            this.mtxTCKimlik.TabIndex = 3;
             this.mtxTCKimlik.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtxTCKimlik.ValidatingType = typeof(int);
             // 
@@ -188,8 +191,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(882, 420);
+            this.ClientSize = new System.Drawing.Size(1079, 420);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnGuncelle);
@@ -205,9 +209,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
             this.Name = "frmDoktorPaneli";
             this.Text = "frmDoktorPaneli";
+            this.Load += new System.EventHandler(this.frmDoktorPaneli_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

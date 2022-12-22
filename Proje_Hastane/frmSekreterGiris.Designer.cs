@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSekreterGiris));
             this.btnGiris = new System.Windows.Forms.Button();
-            this.txtHastaSifre = new System.Windows.Forms.TextBox();
+            this.txtSekreterSifre = new System.Windows.Forms.TextBox();
             this.mtxTCKimlik = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,13 +45,16 @@
             this.btnGiris.TabIndex = 18;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
-            // txtHastaSifre
+            // txtSekreterSifre
             // 
-            this.txtHastaSifre.Location = new System.Drawing.Point(227, 136);
-            this.txtHastaSifre.Name = "txtHastaSifre";
-            this.txtHastaSifre.Size = new System.Drawing.Size(117, 31);
-            this.txtHastaSifre.TabIndex = 17;
+            this.txtSekreterSifre.Location = new System.Drawing.Point(227, 136);
+            this.txtSekreterSifre.Name = "txtSekreterSifre";
+            this.txtSekreterSifre.Size = new System.Drawing.Size(117, 31);
+            this.txtSekreterSifre.TabIndex = 17;
+            this.txtSekreterSifre.Text = "555555";
+            this.txtSekreterSifre.UseSystemPasswordChar = true;
             // 
             // mtxTCKimlik
             // 
@@ -59,6 +63,7 @@
             this.mtxTCKimlik.Name = "mtxTCKimlik";
             this.mtxTCKimlik.Size = new System.Drawing.Size(117, 31);
             this.mtxTCKimlik.TabIndex = 16;
+            this.mtxTCKimlik.Text = "55555555555";
             this.mtxTCKimlik.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtxTCKimlik.ValidatingType = typeof(int);
             // 
@@ -92,20 +97,24 @@
             // 
             // frmSekreterGiris
             // 
+            this.AcceptButton = this.btnGiris;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(540, 253);
             this.Controls.Add(this.btnGiris);
-            this.Controls.Add(this.txtHastaSifre);
+            this.Controls.Add(this.txtSekreterSifre);
             this.Controls.Add(this.mtxTCKimlik);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
             this.Name = "frmSekreterGiris";
-            this.Text = "frmSekreterGiris";
+            this.Text = "Sekreter Girişi";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,7 +123,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnGiris;
-        private System.Windows.Forms.TextBox txtHastaSifre;
+        private System.Windows.Forms.TextBox txtSekreterSifre;
         private System.Windows.Forms.MaskedTextBox mtxTCKimlik;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

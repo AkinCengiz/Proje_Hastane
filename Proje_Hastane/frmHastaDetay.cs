@@ -37,10 +37,7 @@ namespace Proje_Hastane
             connection.Connection().Close();
 
             //Randevu geçmişini getirme
-            DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from tbl_Randevular where HastaTC="+TC,connection.Connection());
-            dataAdapter.Fill(dataTable);
-            dataGridView1.DataSource = dataTable;
+            GetRandevu();
 
             //Branşları çekiyoruz.
             SqlCommand commandBranch = new SqlCommand("Select BransAd from tbl_Branslar", connection.Connection());
@@ -52,6 +49,15 @@ namespace Proje_Hastane
             reader.Close();
             connection.Connection().Close();
             cmbBrans.Text = "Branş Seçiniz...";
+        }
+
+        private void GetRandevu()
+        {
+            DataTable dataTable = new DataTable();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from tbl_Randevular where HastaTC='" + TC + "'",
+                connection.Connection());
+            dataAdapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
         }
 
         private void cmbBrans_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,15 +76,21 @@ namespace Proje_Hastane
             }
             reader.Close();
             connection.Connection().Close();
-            cmbDoktor.SelectedIndex = 0;
+            //cmbDoktor.SelectedIndex = 0;
         }
 
         private void cmbDoktor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GetEmptyRandevu();
+        }
+
+        private void GetEmptyRandevu()
+        {
             DataTable dataTable = new DataTable();
             SqlDataAdapter dataAdapter =
                 new SqlDataAdapter(
-                    "select * from tbl_Randevular where RandevuBrans='" + cmbBrans.Text + "'", connection.Connection());
+                    "select * from tbl_Randevular where RandevuBrans='" + cmbBrans.Text + "' and RandevuDoktor='" +
+                    cmbDoktor.Text + "' and RandevuDurum=0", connection.Connection());
             dataAdapter.Fill(dataTable);
             dataGridView2.DataSource = dataTable;
         }
@@ -88,6 +100,29 @@ namespace Proje_Hastane
             frmBilgiDuzenle bilgiDuzenle = new frmBilgiDuzenle();
             bilgiDuzenle.TC = lblTC.Text;
             bilgiDuzenle.Show();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int secillen = dataGridView2.SelectedCells[0].RowIndex;
+            txtId.Text = dataGridView2.Rows[secillen].Cells[0].Value.ToString();
+        }
+
+        private void btnRandevuAl_Click(object sender, EventArgs e)
+        {
+            
+            SqlCommand command = new SqlCommand(
+                "update tbl_Randevular set RandevuDurum=@Durum, HastaTC=@TC, Sikayet=@Sikayet where RandevuId=@Id",
+                connection.Connection());
+            command.Parameters.AddWithValue("@Durum", true);
+            command.Parameters.AddWithValue("@TC", lblTC.Text);
+            command.Parameters.AddWithValue("@Sikayet", rtxtSikayet.Text);
+            command.Parameters.AddWithValue("@Id", txtId.Text);
+            command.ExecuteNonQuery();
+            connection.Connection().Close();
+            MessageBox.Show("Randevu alındı...");
+            GetEmptyRandevu();
+            GetRandevu();
         }
     }
 }

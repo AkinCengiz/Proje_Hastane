@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHastaDetay));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lnkBilgiDuzenle = new System.Windows.Forms.LinkLabel();
             this.lblAdSoyad = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTC = new System.Windows.Forms.Label();
@@ -46,7 +47,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.lnkBilgiDuzenle = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.xtbTCKimlik = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,6 +72,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hasta Bilgileri";
+            // 
+            // lnkBilgiDuzenle
+            // 
+            this.lnkBilgiDuzenle.AutoSize = true;
+            this.lnkBilgiDuzenle.Location = new System.Drawing.Point(188, 127);
+            this.lnkBilgiDuzenle.Name = "lnkBilgiDuzenle";
+            this.lnkBilgiDuzenle.Size = new System.Drawing.Size(110, 23);
+            this.lnkBilgiDuzenle.TabIndex = 5;
+            this.lnkBilgiDuzenle.TabStop = true;
+            this.lnkBilgiDuzenle.Text = "Bilgi Düzenle";
+            this.lnkBilgiDuzenle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkBilgiDuzenle_LinkClicked);
             // 
             // lblAdSoyad
             // 
@@ -107,6 +122,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtId);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.xtbTCKimlik);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btnRandevuAl);
             this.groupBox2.Controls.Add(this.rtxtSikayet);
             this.groupBox2.Controls.Add(this.label6);
@@ -116,23 +135,24 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(12, 187);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(302, 373);
+            this.groupBox2.Size = new System.Drawing.Size(302, 431);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Randevu Paneli";
             // 
             // btnRandevuAl
             // 
-            this.btnRandevuAl.Location = new System.Drawing.Point(97, 326);
+            this.btnRandevuAl.Location = new System.Drawing.Point(109, 384);
             this.btnRandevuAl.Name = "btnRandevuAl";
             this.btnRandevuAl.Size = new System.Drawing.Size(179, 33);
             this.btnRandevuAl.TabIndex = 4;
             this.btnRandevuAl.Text = "Randevu Al";
             this.btnRandevuAl.UseVisualStyleBackColor = true;
+            this.btnRandevuAl.Click += new System.EventHandler(this.btnRandevuAl_Click);
             // 
             // rtxtSikayet
             // 
-            this.rtxtSikayet.Location = new System.Drawing.Point(97, 124);
+            this.rtxtSikayet.Location = new System.Drawing.Point(109, 182);
             this.rtxtSikayet.Name = "rtxtSikayet";
             this.rtxtSikayet.Size = new System.Drawing.Size(179, 196);
             this.rtxtSikayet.TabIndex = 3;
@@ -141,7 +161,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 127);
+            this.label6.Location = new System.Drawing.Point(21, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 23);
             this.label6.TabIndex = 4;
@@ -150,7 +170,7 @@
             // cmbDoktor
             // 
             this.cmbDoktor.FormattingEnabled = true;
-            this.cmbDoktor.Location = new System.Drawing.Point(97, 87);
+            this.cmbDoktor.Location = new System.Drawing.Point(109, 145);
             this.cmbDoktor.Name = "cmbDoktor";
             this.cmbDoktor.Size = new System.Drawing.Size(179, 31);
             this.cmbDoktor.TabIndex = 2;
@@ -159,7 +179,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 90);
+            this.label5.Location = new System.Drawing.Point(23, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 23);
             this.label5.TabIndex = 2;
@@ -168,7 +188,7 @@
             // cmbBrans
             // 
             this.cmbBrans.FormattingEnabled = true;
-            this.cmbBrans.Location = new System.Drawing.Point(97, 50);
+            this.cmbBrans.Location = new System.Drawing.Point(109, 108);
             this.cmbBrans.Name = "cmbBrans";
             this.cmbBrans.Size = new System.Drawing.Size(179, 31);
             this.cmbBrans.TabIndex = 1;
@@ -177,7 +197,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 53);
+            this.label4.Location = new System.Drawing.Point(34, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 23);
             this.label4.TabIndex = 0;
@@ -208,7 +228,7 @@
             this.groupBox4.Controls.Add(this.dataGridView2);
             this.groupBox4.Location = new System.Drawing.Point(320, 274);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(886, 286);
+            this.groupBox4.Size = new System.Drawing.Size(886, 344);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Aktif Randevular";
@@ -216,23 +236,49 @@
             // dataGridView2
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 27);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(880, 256);
+            this.dataGridView2.Size = new System.Drawing.Size(880, 314);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
-            // lnkBilgiDuzenle
+            // label3
             // 
-            this.lnkBilgiDuzenle.AutoSize = true;
-            this.lnkBilgiDuzenle.Location = new System.Drawing.Point(188, 127);
-            this.lnkBilgiDuzenle.Name = "lnkBilgiDuzenle";
-            this.lnkBilgiDuzenle.Size = new System.Drawing.Size(110, 23);
-            this.lnkBilgiDuzenle.TabIndex = 5;
-            this.lnkBilgiDuzenle.TabStop = true;
-            this.lnkBilgiDuzenle.Text = "Bilgi Düzenle";
-            this.lnkBilgiDuzenle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkBilgiDuzenle_LinkClicked);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(2, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 23);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Kimlik No :";
+            // 
+            // xtbTCKimlik
+            // 
+            this.xtbTCKimlik.Location = new System.Drawing.Point(109, 71);
+            this.xtbTCKimlik.Mask = "00000000000";
+            this.xtbTCKimlik.Name = "xtbTCKimlik";
+            this.xtbTCKimlik.Size = new System.Drawing.Size(179, 31);
+            this.xtbTCKimlik.TabIndex = 6;
+            this.xtbTCKimlik.ValidatingType = typeof(int);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(60, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 23);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "ID :";
+            // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(109, 34);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(179, 31);
+            this.txtId.TabIndex = 8;
             // 
             // frmHastaDetay
             // 
@@ -284,5 +330,9 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.LinkLabel lnkBilgiDuzenle;
+        private System.Windows.Forms.MaskedTextBox xtbTCKimlik;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label7;
     }
 }

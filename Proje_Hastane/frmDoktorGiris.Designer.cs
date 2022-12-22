@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnGiris = new System.Windows.Forms.Button();
-            this.txtHastaSifre = new System.Windows.Forms.TextBox();
+            this.txtDoktorSifre = new System.Windows.Forms.TextBox();
             this.mtxTCKimlik = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,13 +44,15 @@
             this.btnGiris.TabIndex = 12;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
-            // txtHastaSifre
+            // txtDoktorSifre
             // 
-            this.txtHastaSifre.Location = new System.Drawing.Point(212, 147);
-            this.txtHastaSifre.Name = "txtHastaSifre";
-            this.txtHastaSifre.Size = new System.Drawing.Size(117, 31);
-            this.txtHastaSifre.TabIndex = 11;
+            this.txtDoktorSifre.Location = new System.Drawing.Point(212, 147);
+            this.txtDoktorSifre.Name = "txtDoktorSifre";
+            this.txtDoktorSifre.Size = new System.Drawing.Size(117, 31);
+            this.txtDoktorSifre.TabIndex = 11;
+            this.txtDoktorSifre.UseSystemPasswordChar = true;
             // 
             // mtxTCKimlik
             // 
@@ -92,18 +94,19 @@
             // 
             // frmDoktorGiris
             // 
+            this.AcceptButton = this.btnGiris;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(537, 289);
             this.Controls.Add(this.btnGiris);
-            this.Controls.Add(this.txtHastaSifre);
+            this.Controls.Add(this.txtDoktorSifre);
             this.Controls.Add(this.mtxTCKimlik);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmDoktorGiris";
             this.Text = "Doktor Giriş";
             this.ResumeLayout(false);
@@ -114,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnGiris;
-        private System.Windows.Forms.TextBox txtHastaSifre;
+        private System.Windows.Forms.TextBox txtDoktorSifre;
         private System.Windows.Forms.MaskedTextBox mtxTCKimlik;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
